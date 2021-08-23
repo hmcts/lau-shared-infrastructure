@@ -6,7 +6,7 @@ provider "azurerm" {
   alias           = "aks-infra"
   subscription_id = var.aks_infra_subscription_id
   features {}
-  skip_provider_registration = true
+  skip_provider_registration = false
 }
 
 provider "azurerm" {
