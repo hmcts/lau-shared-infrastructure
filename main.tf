@@ -29,13 +29,6 @@ module "lau-vault" {
   create_managed_identity    = true
 }
 
-resource "azurerm_key_vault" "lau_key_vault" {
-  name                = "lau-${var.env}"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  tenant_id           = var.tenant_id
-}
-
 output "vaultName" {
   value = module.lau-vault.key_vault_name
 }
