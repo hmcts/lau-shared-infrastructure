@@ -1,10 +1,4 @@
 terraform {
-  required_providers {
-    
-  }
-}
-
-terraform {
   backend "azurerm" {}
 
   required_providers {
