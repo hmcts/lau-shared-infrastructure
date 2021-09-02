@@ -2,3 +2,8 @@
 .terraform
 *.iml
 .DS_store
+.gradle
+gradlew.bat
+gradlew.sh
+gradlew
+gradle/*
