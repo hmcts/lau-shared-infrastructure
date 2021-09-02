@@ -37,10 +37,6 @@ variable "aks_subscription_id" {}
 
 variable "aks_preview_subscription_id" {}
 
-variable "name" {
-  default = false
-}
-
 variable "managed_identity_object_id" {
   default = ""
 }
