@@ -4,7 +4,7 @@ provider azurerm {
 
 locals {
   images = []
-  tags = merge(var.common_tags, map("Team Contact", "#lau"))
+  tags = merge(var.common_tags, tomap({"Team Contact" = "#lau"}))
 }
 
 resource "azurerm_resource_group" "rg" {
