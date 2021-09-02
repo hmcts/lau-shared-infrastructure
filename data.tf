@@ -33,14 +33,14 @@ data "azurerm_subnet" "jenkins_aks_01" {
 }
 
 data "azurerm_subnet" "app_aks_00_subnet" {
-  provider             = azurerm.aks-infra
+  provider             = azurerm.aks
   name                 = "aks-00"
   virtual_network_name = local.app_aks_network_name
   resource_group_name  = local.app_aks_network_rg_name
 }
 
 data "azurerm_subnet" "app_aks_01_subnet" {
-  provider             = azurerm.aks-infra
+  provider             = azurerm.aks
   name                 = "aks-01"
   virtual_network_name = local.app_aks_network_name
   resource_group_name  = local.app_aks_network_rg_name

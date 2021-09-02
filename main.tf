@@ -21,9 +21,6 @@ module "lau-vault" {
   tenant_id                  = var.tenant_id
   object_id                  = var.jenkins_AAD_objectId
   resource_group_name        = azurerm_resource_group.rg.name
-
-  # dcd_group_lau_v2 group object ID
-  #product_group_object_id    = "20f0f9b1-1953-43c0-9e68-91d6674a6acc"
   product_group_name         = "DTS LAU"
   common_tags                = var.common_tags
   create_managed_identity    = true
