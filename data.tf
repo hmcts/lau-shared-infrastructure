@@ -34,8 +34,8 @@ data "azurerm_subnet" "jenkins_aks_01" {
 
 data "azurerm_virtual_network" "aks_core_vnet" {
   provider            = azurerm.aks
-  name                = local.mgmt_network_name
-  resource_group_name = local.mgmt_network_rg_name
+  name                = local.app_aks_network_name
+  resource_group_name = local.app_aks_network_rg_name
 }
 
 data "azurerm_subnet" "app_aks_00_subnet" {
