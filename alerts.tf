@@ -10,7 +10,7 @@ module "case-disposer-action-group" {
   action_group_name      = "${var.application_name}-${var.env}-support"
   short_name             = "cd${var.env}Sup"
   email_receiver_name    = "Case Disposer Deletion Failure Alert"
-  email_receiver_address = "martin.spasov1@hmcts.net"
+  email_receiver_address = data.azurerm_key_vault_secret.caseDisposerAlertEmail.value
 }
 
 module "case-disposer-deletion-failure-alert" {
