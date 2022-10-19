@@ -71,3 +71,9 @@ data "azurerm_subnet" "aks-01-preview" {
   virtual_network_name = data.azurerm_virtual_network.aks_preview_vnet.name
   resource_group_name  = data.azurerm_virtual_network.aks_preview_vnet.resource_group_name
 }
+
+data "azurerm_key_vault_secret" "caseDisposerAlertEmail" {
+  depends_on   = [module.lau-vault]
+  name         = "caseDisposerAlertEmail"
+  key_vault_id = module.lau-vault.key_vault_id
+}
