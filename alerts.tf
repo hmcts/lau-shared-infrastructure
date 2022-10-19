@@ -24,11 +24,11 @@ module "case-disposer-deletion-failure-alert" {
   #run every 15 hrs for early alert
   frequency_in_minutes       = 15
   #window of 1day as data extract needs to run daily
-#  time_window_in_minutes     = 1440
+  time_window_in_minutes     = 15
   severity_level             = "2"
   action_group_name          = "${var.application_name}-${var.env}-support"
-  trigger_threshold_operator = "LessThan"
-  trigger_threshold          = 1
+  trigger_threshold_operator = "GreaterThan"
+  trigger_threshold          = 0
   resourcegroup_name         = local.alert_resource_group_name
   enabled                    = var.enable_alerts
   common_tags                = var.common_tags
