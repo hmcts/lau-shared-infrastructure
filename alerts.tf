@@ -13,7 +13,7 @@ module "case-disposer-action-group" {
   email_receiver_address = "martin.spasov1@hmcts.net"
 }
 
-module "daily-smee-ford-alert" {
+module "case-disposer-deletion-failure-alert" {
   source                     = "git@github.com:hmcts/cnp-module-metric-alert"
   location                   = var.appinsights_location
   app_insights_name          = "ccd-${var.env}"
