@@ -19,12 +19,12 @@ module "case-disposer-deletion-failure-alert" {
   app_insights_name          = "ccd-${var.env}"
   alert_name                 = "${var.application_name}-${var.env}-deletion-failures-alert"
   alert_desc                 = "Alert when case disposer fail to delete case data"
-  app_insights_query         = "traces | where message contains 'Case Disposer Deletion Summary'"
+  app_insights_query         = "traces | where message contains 'Case Disposer Deletion Summary' and message !contains 'Failed cases : 0'"
   custom_email_subject       = "Alert: Case disposer deletion failure"
-  #run every 15 hrs for early alert
-  frequency_in_minutes       = 15
-  #window of 1day as data extract needs to run daily
-  time_window_in_minutes     = 15
+  #run every 6 hrs for early alert
+  frequency_in_minutes       = 360
+  # window of 1 day as data extract needs to run daily
+  time_window_in_minutes     = 1440
   severity_level             = "2"
   action_group_name          = module.case-disposer-action-group.action_group_name
   trigger_threshold_operator = "GreaterThan"
