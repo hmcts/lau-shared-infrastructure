@@ -8,7 +8,7 @@ module "case-disposer-action-group" {
   env                    = var.env
   resourcegroup_name     = local.alert_resource_group_name
   action_group_name      = "${var.application_name}-${var.env}-ag"
-  short_name             = "cd${var.env}ag"
+  short_name             = "case-disposer-alert-${var.env}"
   email_receiver_name    = "Case Disposer Deletion Failure Alert"
   email_receiver_address = data.azurerm_key_vault_secret.caseDisposerAlertEmail.value
 }
