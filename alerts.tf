@@ -8,7 +8,7 @@ module "case-disposer-action-group" {
   env                    = var.env
   resourcegroup_name     = local.alert_resource_group_name
   action_group_name      = "${var.application_name}-${var.env}-ag"
-  short_name             = "case-disposer-alert-${var.env}"
+  short_name             = "dispr-alert"
   email_receiver_name    = "Case Disposer Deletion Failure Alert"
   email_receiver_address = data.azurerm_key_vault_secret.caseDisposerAlertEmail.value
 }
@@ -20,7 +20,7 @@ module "case-disposer-deletion-failure-alert" {
   alert_name                 = "${var.application_name}-${var.env}-failures-alert"
   alert_desc                 = "Alert when case disposer fail to delete case data"
   app_insights_query         = "traces | where message contains 'Case Disposer Deletion Summary' and message !contains 'Failed cases : 0'"
-  custom_email_subject       = "Alert: Case disposer deletion failure"
+  custom_email_subject       = "Alert: Case disposer deletion failure in ccd-${var.env}"
   #run every 6 hrs for early alert
   frequency_in_minutes       = 360
   # window of 1 day as data extract needs to run daily
