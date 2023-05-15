@@ -55,7 +55,7 @@ data "azurerm_subnet" "app_aks_01_subnet" {
 data "azurerm_virtual_network" "aks_preview_vnet" {
   provider            = azurerm.aks-preview
   name                = "core-preview-vnet"
-  resource_group_name = "aks-infra-preview-rg"
+  resource_group_name = "cft-preview-network-rg"
 }
 
 data "azurerm_subnet" "aks-00-preview" {
