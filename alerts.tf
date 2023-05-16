@@ -17,7 +17,7 @@ module "case-disposer-deletion-failure-alert" {
   source                     = "git@github.com:hmcts/cnp-module-metric-alert"
   location                   = var.location
   app_insights_name          = "ccd-${var.env}"
-  alert_name                 = "${var.application_name}-${var.env}-failures-alert"
+  alert_name                 = "${var.application_name}-${var.env}-failures"
   alert_desc                 = "Alert when case disposer fail to delete case data"
   app_insights_query         = "traces | where message contains 'Case Disposer Deletion Summary' and message !contains 'Failed cases : 0'"
   custom_email_subject       = "Alert: Case disposer deletion failure in ccd-${var.env}"
