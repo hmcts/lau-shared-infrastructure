@@ -15,7 +15,7 @@ module "case-disposer-action-group" {
 
 module "case-disposer-deletion-failure-alert" {
   source                     = "git@github.com:hmcts/cnp-module-metric-alert"
-  location                   = var.appinsights_location
+  location                   = var.location
   app_insights_name          = "ccd-${var.env}"
   alert_name                 = "${var.application_name}-${var.env}-failures-alert"
   alert_desc                 = "Alert when case disposer fail to delete case data"
