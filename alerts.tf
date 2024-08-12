@@ -10,7 +10,7 @@ module "case-disposer-action-group" {
   action_group_name      = "${var.application_name}-${var.env}-ag"
   short_name             = "dispr-alert"
   email_receiver_name    = "Case Disposer Deletion Failure Alert"
-  email_receiver_address = data.azurerm_key_vault_secret.caseDisposerAlertEmail.value
+  email_receiver_address = "alerts-monitoring-aaaaklvwobh6lsictm7na5t3mi@moj.org.slack.com"
 }
 
 module "case-disposer-deletion-failure-alert" {
