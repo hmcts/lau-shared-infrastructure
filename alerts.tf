@@ -14,15 +14,15 @@ module "case-disposer-action-group" {
 }
 
 module "case-disposer-deletion-failure-alert" {
-  source                     = "git@github.com:hmcts/cnp-module-metric-alert"
-  location                   = var.location
-  app_insights_name          = "ccd-${var.env}"
-  alert_name                 = "${var.application_name}-${var.env}-failures"
-  alert_desc                 = "Alert when case disposer fail to delete case data"
-  app_insights_query         = "traces | where message contains 'Case Disposer Deletion Summary' and message !contains 'Failed cases : 0'"
-  custom_email_subject       = "Alert: Case disposer deletion failure in ccd-${var.env}"
+  source               = "git@github.com:hmcts/cnp-module-metric-alert"
+  location             = var.location
+  app_insights_name    = "ccd-${var.env}"
+  alert_name           = "${var.application_name}-${var.env}-failures"
+  alert_desc           = "Alert when case disposer fail to delete case data"
+  app_insights_query   = "traces | where message contains 'Case Disposer Deletion Summary' and message !contains 'Failed cases : 0'"
+  custom_email_subject = "Alert: Case disposer deletion failure in ccd-${var.env}"
   #run every 6 hrs for early alert
-  frequency_in_minutes       = "360"
+  frequency_in_minutes = "360"
   # window of 1 day as data extract needs to run daily
   time_window_in_minutes     = "1440"
   severity_level             = "2"
