@@ -77,3 +77,9 @@ data "azurerm_key_vault_secret" "caseDisposerAlertEmail" {
   name         = "caseDisposerAlertEmail"
   key_vault_id = module.lau-vault.key_vault_id
 }
+
+data "azurerm_key_vault_secret" "caseDisposerSummaryEmail" {
+  depends_on   = [module.lau-vault]
+  name         = "caseDisposerSummaryEmail"
+  key_vault_id = module.lau-vault.key_vault_id
+}

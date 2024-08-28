@@ -58,3 +58,7 @@ variable "enable_alerts" {
 variable "application_name" {
   default     = "ccd-case-disposer"
 }
+
+variable "enable_summary_alerts" {
+  default = false
+}
