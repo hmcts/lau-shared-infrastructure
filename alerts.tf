@@ -51,7 +51,7 @@ module "case-disposer-deletion-summary-alert" {
   app_insights_name    = "ccd-${var.env}"
   alert_name           = "${var.application_name}-${var.env}-summary-alert"
   alert_desc           = "Alert when Case disposer deletion run and present summary"
-  app_insights_query   = "traces | where message contains 'Case Disposer Deletion Summary :'"
+  app_insights_query   = "traces | where message contains 'Case Disposer Deletion Summary'"
   custom_email_subject = "Alert: Case disposer deletion Summary in ccd-${var.env}"
   ##run every day as ccd case disposer runs only once
   frequency_in_minutes = "1440"
