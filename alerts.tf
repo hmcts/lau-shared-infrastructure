@@ -54,9 +54,9 @@ module "case-disposer-deletion-summary-alert" {
   app_insights_query   = "traces | where message contains 'Case Disposer Deletion Summary'"
   custom_email_subject = "Alert: Case disposer deletion Summary in ccd-${var.env}"
   ##run every day as ccd case disposer runs only once
-  frequency_in_minutes = "1440"
+  frequency_in_minutes = var.disposer_frequency_in_minutes
   # window of 1 day as ccd case disposer runs daily once
-  time_window_in_minutes     = "1440"
+  time_window_in_minutes     = var.disposer_time_window_in_minutes
   severity_level             = "2"
   action_group_name          = module.case-disposer-deletion-summary-action-group.action_group_name
   trigger_threshold_operator = "GreaterThan"

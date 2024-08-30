@@ -62,3 +62,11 @@ variable "application_name" {
 variable "enable_summary_alerts" {
   default = false
 }
+
+variable "disposer_frequency_in_minutes" {
+  default = 1440
+}
+
+variable "disposer_time_window_in_minutes" {
+  default = 1440
+}
