@@ -2,7 +2,6 @@ provider "azurerm" {
   features {}
   alias                      = "aks"
   subscription_id            = var.aks_subscription_id
-  resource_provider_registrations = "none"
 }
 
 provider "azurerm" {
