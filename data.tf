@@ -83,3 +83,8 @@ data "azurerm_key_vault_secret" "caseDisposerSummaryEmail" {
   name         = "caseDisposerSummaryEmail"
   key_vault_id = module.lau-vault.key_vault_id
 }
+
+data "azurerm_user_assigned_identity" "jenkins" {
+  name                = "jenkins-${var.env}-mi"
+  resource_group_name = "managed-identities-${var.env}-rg"
+}
