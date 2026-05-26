@@ -11,6 +11,7 @@ module "case-disposer-action-group" {
   short_name             = "dispr-alert"
   email_receiver_name    = "Case Disposer Deletion Failure Alert"
   email_receiver_address = data.azurerm_key_vault_secret.caseDisposerAlertEmail.value
+  tags                   = var.common_tags
 }
 
 module "case-disposer-deletion-failure-alert" {
@@ -43,6 +44,7 @@ module "case-disposer-deletion-summary-action-group" {
   short_name             = "ccd-summary"
   email_receiver_name    = "Case Disposer deletion Summary Alert"
   email_receiver_address = data.azurerm_key_vault_secret.caseDisposerSummaryEmail.value
+  tags                   = var.common_tags
 }
 
 module "case-disposer-deletion-summary-alert" {
