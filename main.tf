@@ -27,7 +27,25 @@ module "lau-vault" {
   create_managed_identity = true
 }
 
+data "azurerm_client_config" "current" {}
+
+data "azurerm_user_assigned_identity" "jenkins_preview" {
+  count               = var.env == "aat" ? 1 : 0
+  name                = "jenkins-preview-mi"
+  resource_group_name = "managed-identities-preview-rg"
+}
+
+resource "azurerm_key_vault_access_policy" "jenkins_preview" {
+  count        = var.env == "aat" ? 1 : 0
+  key_vault_id = module.lau-vault.key_vault_id
+  object_id    = data.azurerm_user_assigned_identity.jenkins_preview[0].principal_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+
+  key_permissions         = ["Get", "List"]
+  certificate_permissions = ["Get", "List"]
+  secret_permissions      = ["Get", "List"]
+}
+
 output "vaultName" {
   value = module.lau-vault.key_vault_name
 }
-
