@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 module "lau-vault" {
-  source                  = "git@github.com:hmcts/cnp-module-key-vault?ref=master"
+  source                  = "git@github.com:hmcts/cnp-module-key-vault?ref=DTSPO-31965/remove-jenkins-ptl-access"
   name                    = "lau-${var.env}"
   product                 = var.product
   env                     = var.env
@@ -30,4 +30,3 @@ module "lau-vault" {
 output "vaultName" {
   value = module.lau-vault.key_vault_name
 }
-
