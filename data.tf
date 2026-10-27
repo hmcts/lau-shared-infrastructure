@@ -52,26 +52,6 @@ data "azurerm_subnet" "app_aks_01_subnet" {
   resource_group_name  = data.azurerm_virtual_network.aks_core_vnet.resource_group_name
 }
 
-data "azurerm_virtual_network" "aks_preview_vnet" {
-  provider            = azurerm.aks-preview
-  name                = "cft-preview-vnet"
-  resource_group_name = "cft-preview-network-rg"
-}
-
-data "azurerm_subnet" "aks-00-preview" {
-  provider             = azurerm.aks-preview
-  name                 = "aks-00"
-  virtual_network_name = data.azurerm_virtual_network.aks_preview_vnet.name
-  resource_group_name  = data.azurerm_virtual_network.aks_preview_vnet.resource_group_name
-}
-
-data "azurerm_subnet" "aks-01-preview" {
-  provider             = azurerm.aks-preview
-  name                 = "aks-01"
-  virtual_network_name = data.azurerm_virtual_network.aks_preview_vnet.name
-  resource_group_name  = data.azurerm_virtual_network.aks_preview_vnet.resource_group_name
-}
-
 data "azurerm_key_vault_secret" "caseDisposerAlertEmail" {
   depends_on   = [module.lau-vault]
   name         = "caseDisposerAlertEmail"
