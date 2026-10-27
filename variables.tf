@@ -29,8 +29,6 @@ variable "mgmt_subscription_id" {}
 
 variable "aks_subscription_id" {}
 
-variable "aks_preview_subscription_id" {}
-
 variable "managed_identity_object_id" {
   default = ""
 }
